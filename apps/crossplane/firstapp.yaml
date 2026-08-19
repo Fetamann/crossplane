@@ -1,11 +1,9 @@
-apiVersion: example.crossplane.io/v1
-kind: App
+apiVersion: platform.example.com/v1alpha1
+kind: WebApp
 metadata:
+  name: podinfo
   namespace: default
-  name: my-app
 spec:
-  image: nginx
-status:
-  replicas: 2  # Copied from the Deployment's status
-  address: 10.0.0.1  # Copied from the Service's status
-
+  image: docker.io/stefanprodan/podinfo:6.11.0
+  replicas: 3
+  ports: [9898]
